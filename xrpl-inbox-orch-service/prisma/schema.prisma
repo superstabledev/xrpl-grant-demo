@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model IncomingPayment {
+  id        String   @id @default(cuid())
+  wallet    String
+  amount    String
+  currency  String
+  timestamp DateTime @default(now())
+  payoutId  String?
+  status    String   @default("pending")
+}

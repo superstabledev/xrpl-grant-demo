@@ -1,0 +1,22 @@
+{
+  "name": "xrpl-inbox-service",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/webhook.js",
+    "dev": "nodemon src/webhook.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0",
+    "prisma": "^6.5.0",
+    "xrpl": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "nodemon": "^2.0.22",
+    "typescript": "^5.0.0"
+  }
+}
