@@ -4,7 +4,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && node dist/webhook.js",
+    "start": "npx tsc && node dist/webhook.js",
     "dev": "nodemon src/webhook.ts"
   },
   "dependencies": {

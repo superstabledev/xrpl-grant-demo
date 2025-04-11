@@ -1,16 +1,14 @@
 import { logTransaction } from '../utils/logger.js';
-
-export const callSuperStableAPI = async (receiver: string, amount: string): Promise<boolean> => {
+export const callSuperStableAPI = async (receiver, amount) => {
     try {
         logTransaction(`[MockAPI] POST /transfers → Initiating INR payout for ${receiver} of ₹${amount}`);
-
         // Simulate network delay
         await new Promise((res) => setTimeout(res, 1000));
-
         // Simulate success
         logTransaction(`[MockAPI] ✅ SuperStable payout processed successfully`);
         return true;
-    } catch (error) {
+    }
+    catch (error) {
         console.error(`[MockAPI] ❌ Error calling SuperStable API:`, error);
         return false;
     }
