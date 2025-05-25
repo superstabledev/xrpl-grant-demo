@@ -1,5 +1,5 @@
-import { Wallet } from "xrpl";
-import { PrismaClient } from "@prisma/client";
+import { Wallet } from 'xrpl';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -7,7 +7,8 @@ export const getSuperStableAsscWallet = async (): Promise<{ address: string; see
     const existing = await prisma.superStableWallet.findFirst();
 
     if (existing) {
-        return { address: existing.address, seed: existing.seed }
+        console.log(existing.seed)
+        return { address: existing.address, seed: existing.seed };
     }
 
     const wallet = Wallet.generate();
@@ -19,4 +20,4 @@ export const getSuperStableAsscWallet = async (): Promise<{ address: string; see
     });
 
     return { address: wallet.classicAddress, seed: wallet.seed! };
-}
+};

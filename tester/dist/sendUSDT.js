@@ -1,6 +1,8 @@
 import 'dotenv/config';
 import { Client, Wallet } from 'xrpl';
-const client = new Client('wss://s.altnet.rippletest.net:51233', { connectionTimeout: 10000 });
+const client = new Client('wss://testnet.xrpl-labs.com', {
+    connectionTimeout: 15000, // 15 seconds
+});
 // await setTrustline();
 const CURRENCY = process.env.CURRENCY;
 const RECEIVER = process.env.RECEIVER_ADDRESS;

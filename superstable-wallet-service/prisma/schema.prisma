@@ -17,11 +17,21 @@ model SuperStableWallet {
   createdAt DateTime @default(now())
 }
 
+model Quote {
+  id        String   @id @default(cuid())
+  quoteId   String   @unique
+  amount    String
+  currency  String
+  receiver  String
+  createdAt DateTime @default(now())
+}
+
 model Payout {
   id        String   @id @default(cuid())
   receiver  String
   amount    String
-  payoutId  String
-  status    String   @default("success")
+  payoutId  String   @unique
+  quoteId   String
+  status    String   @default("processing")
   timestamp DateTime @default(now())
 }

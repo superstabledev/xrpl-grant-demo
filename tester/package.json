@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsc && node dist/sendUSDT.js"
+    "start": "npx tsc && node dist/sendUSDT.js",
+    "balance": "npx tsc && node dist/getBalance.js",
+    "trustline": "npx tsc && node dist/setupTrustline.js"
   },
   "keywords": [],
   "author": "",

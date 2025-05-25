@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import { monitorIncomingPayments } from './services/xrplMonitor.js';
 import { triggerPayoutRequest } from './services/payoutClient.js';
 import { PrismaClient } from '@prisma/client';
+import { transferToSuperStable } from './services/settleUSDT.js';
 dotenv.config();
 const prisma = new PrismaClient();
 const RECEIVER = process.env.RECEIVER_WALLET;
@@ -20,6 +21,7 @@ monitorIncomingPayments(RECEIVER, CURRENCY, async (amount) => {
     });
     if (payout?.success) {
         console.log(`[Webhook] ✅ Payout confirmed. Simulate USDT transfer to ${payout.superstable_wallet}`);
+        await transferToSuperStable(amount, payout.superstable_wallet);
     }
     else {
         console.error(`[Webhook] ❌ Payout failed. USDT not transferred.`);

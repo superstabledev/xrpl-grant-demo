@@ -5,7 +5,9 @@ export const monitorIncomingPayments = async (
     currency: string,
     callback: (amount: string) => void
 ) => {
-    const client = new Client('wss://s.altnet.rippletest.net:51233');
+    const client = new Client('wss://testnet.xrpl-labs.com', {
+        connectionTimeout: 15000, // 15 seconds
+    });
     await client.connect();
 
     client.on('transaction', (event) => {

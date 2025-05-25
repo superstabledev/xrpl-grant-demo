@@ -3,7 +3,7 @@ import { Client, Wallet, TrustSet } from 'xrpl';
 
 const client = new Client('wss://s.altnet.rippletest.net:51233');
 
-const RECEIVER_SEED = process.env.RECEIVER_SEED!;
+const RECEIVER_SEED = process.env.SUPERSTABLE_SEED!;
 const ISSUER_ADDRESS = process.env.ISSUER_ADDRESS!;
 const CURRENCY = process.env.CURRENCY!;
 const receiverWallet = Wallet.fromSeed(RECEIVER_SEED);
